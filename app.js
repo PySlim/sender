@@ -62,3 +62,8 @@ function sendService12Hours() {
     sendPostRequest('service_12h');
 }
 
+sendService1Min();
+sendService5Min();
+sendService30Min();
+sendService1Hour();
+sendService12Hours();
