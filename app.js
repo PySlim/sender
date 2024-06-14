@@ -1,8 +1,8 @@
 const http = require('http');
 
-// Define la función para enviar la petición POST
-function sendPostRequest() {
-    const responseService = { "op": "service_1min", "key": "815751D3FE174F51E6877CE624CFFBFF" };
+// Función genérica para enviar peticiones POST
+function sendPostRequest(command) {
+    const responseService = { "op": command, "key": "815751D3FE174F51E6877CE624CFFBFF" };
     const dataSendService = JSON.stringify(responseService, null, 2);
 
     const options_service = {
@@ -24,16 +24,16 @@ function sendPostRequest() {
         });
 
         res.on('end', () => {
-            console.log('Respuesta del servidor:', responseData);
+            console.log(`Respuesta del servidor para ${command}:`, responseData);
         });
     });
 
     request.on('error', (error) => {
-        console.error('Request error:', error);
+        console.error(`Request error for ${command}:`, error);
     });
 
     request.on('timeout', () => {
-        console.error('Request timeout');
+        console.error(`Request timeout for ${command}`);
         request.destroy();
     });
 
@@ -41,8 +41,24 @@ function sendPostRequest() {
     request.end();
 }
 
-// Llama a la función cada 60 segundos (60000 milisegundos)
-setInterval(sendPostRequest, 60000);
+// Funciones específicas para cada comando
+function sendService1Min() {
+    sendPostRequest('service_1min');
+}
 
-// Llamar la función inicialmente si deseas que la primera petición se envíe de inmediato
-sendPostRequest();
+function sendService5Min() {
+    sendPostRequest('service_5min');
+}
+
+function sendService30Min() {
+    sendPostRequest('service_30min');
+}
+
+function sendService1Hour() {
+    sendPostRequest('service_1h');
+}
+
+function sendService12Hours() {
+    sendPostRequest('service_12h');
+}
+
