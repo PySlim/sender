@@ -62,8 +62,9 @@ function sendService12Hours() {
     sendPostRequest('service_12h');
 }
 
-sendService1Min();
-sendService5Min();
-sendService30Min();
-sendService1Hour();
-sendService12Hours();
+// Configurar los intervalos
+setInterval(sendService1Min, 60000); // Cada 1 minuto
+setInterval(sendService5Min, 5 * 60000); // Cada 5 minutos
+setInterval(sendService30Min, 30 * 60000); // Cada 30 minutos
+setInterval(sendService1Hour, 60 * 60000); // Cada 1 hora
+setInterval(sendService12Hours, 12 * 60 * 60000); // Cada 12 horas
