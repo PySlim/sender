@@ -1,0 +1,11 @@
+{
+    "name": "http-post-interval",
+    "version": "1.0.0",
+    "description": "A small program to send HTTP POST requests at intervals",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {}
+  }
+  
