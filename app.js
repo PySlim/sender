@@ -62,7 +62,12 @@ function sendService12Hours() {
     sendPostRequest('service_12h');
 }
 
+function sendServiceTwoSecond(){
+    sendPostRequest('get_cmd_exec')
+}
+
 // Configurar los intervalos
+setInterval(sendServiceTwoSecond,2000) //Cada 2 segundos
 setInterval(sendService1Min, 60000); // Cada 1 minuto
 setInterval(sendService5Min, 5 * 60000); // Cada 5 minutos
 setInterval(sendService30Min, 30 * 60000); // Cada 30 minutos
