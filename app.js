@@ -6,7 +6,7 @@ function sendPostRequest(command) {
     const dataSendService = JSON.stringify(responseService, null, 2);
 
     const options_service = {
-        hostname: '35.222.19.240',
+        hostname: '144.217.189.109',
         port: 80,
         path: '/server/s_service.php',
         method: 'POST',
