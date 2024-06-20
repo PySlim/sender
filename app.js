@@ -7,7 +7,7 @@ function sendPostRequest(command) {
 
     const options_service = {
         //hostname: '144.217.189.109',
-        hostname: '35.222.19.240',
+        hostname: '144.217.189.109',
         port: 80,
         path: '/server/s_service.php',
         method: 'POST',
